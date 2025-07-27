@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wholesaler Dashboard - VendorConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
+
+    <header>
+        <nav class="navbar glass-nav">
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h1>VendorConnect</h1>
+                </div>
+            </div>
+            <div class="nav-links">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <div class="user-details">
+                        <span id="wholesalerName">Welcome</span>
+                        <small>Wholesaler</small>
+                    </div>
+                </div>
+                <button onclick="logout()" class="btn-secondary glass-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-nav-menu" id="mobileNavMenu">
+            <div class="mobile-nav-header">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h1>VendorConnect</h1>
+                </div>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="mobile-nav-links">
+                <div class="mobile-user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <div class="user-details">
+                        <span id="mobileWholesalerName">Welcome</span>
+                        <small>Wholesaler Dashboard</small>
+                    </div>
+                </div>
+                <button onclick="logout(); toggleMobileMenu()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2><i class="fas fa-boxes"></i> My Product Catalog</h2>
+                <button onclick="showAddProductModal()" class="btn-primary glass-btn">
+                    <i class="fas fa-plus"></i>
+                    Add New Product
+                </button>
+            </div>
+
+            <div class="wholesaler-products" id="wholesalerProducts">
+                <!-- Wholesaler's products will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Add/Edit Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content glass-panel large-modal">
+            <div class="modal-header">
+                <h3 id="modalTitle"><i class="fas fa-plus"></i> Add New Product</h3>
+                <span class="close" onclick="closeProductModal()">
+                    <i class="fas fa-times"></i>
+                </span>
+            </div>
+            <div class="modal-body">
+                <form id="productForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-tag"></i> Product Name</label>
+                            <div class="input-group">
+                                <i class="fas fa-tag"></i>
+                                <input type="text" id="productName" placeholder="Enter product name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-rupee-sign"></i> Price (₹/kg)</label>
+                            <div class="input-group">
+                                <i class="fas fa-rupee-sign"></i>
+                                <input type="number" id="productPrice" step="0.01" placeholder="0.00" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-image"></i> Product Image</label>
+                        <div class="image-upload-container">
+                            <input type="file" id="productImage" accept="image/*" onchange="previewImage(this)">
+                            <div class="image-upload-area" onclick="document.getElementById('productImage').click()">
+                                <div class="upload-placeholder" id="uploadPlaceholder">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Click to upload image</p>
+                                    <small>JPG, PNG or GIF (Max 5MB)</small>
+                                </div>
+                                <img id="imagePreview" class="image-preview" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-boxes"></i> Stock Status</label>
+                            <div class="input-group">
+                                <i class="fas fa-boxes"></i>
+                                <select id="productStock" required>
+                                    <option value="in-stock">In Stock</option>
+                                    <option value="out-of-stock">Out of Stock</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-align-left"></i> Description</label>
+                        <textarea id="productDescription" placeholder="Describe your product..." rows="4"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary glass-btn full-width">
+                        <i class="fas fa-save"></i>
+                        Save Product
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

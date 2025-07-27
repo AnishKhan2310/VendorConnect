@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VendorConnect - Modern B2B Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h1>VendorConnect</h1>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#about" class="btn-secondary glass-btn" onclick="showAboutModal()">
+                    <i class="fas fa-info-circle"></i>
+                    About Us
+                </a>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-nav-menu" id="mobileNavMenu">
+            <div class="mobile-nav-header">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h1>VendorConnect</h1>
+                </div>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="mobile-nav-links">
+                <a href="#about" onclick="showAboutModal(); toggleMobileMenu()">
+                    <i class="fas fa-info-circle"></i>
+                    About Us
+                </a>
+                <a href="#" onclick="routeUser('vendor', 'vendor-auth.html', 'vendor-dashboard.html'); toggleMobileMenu()">
+                    <i class="fas fa-store"></i>
+                    I'm a Vendor
+                </a>
+                <a href="#" onclick="routeUser('wholesaler', 'wholesaler-auth.html', 'wholesaler-dashboard.html'); toggleMobileMenu()">
+                    <i class="fas fa-warehouse"></i>
+                    I'm a Wholesaler
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text animate-on-scroll">
+                    <h2>Connect. Trade. Grow.</h2>
+                    <p>The future of vendor-wholesaler relationships. Join thousands of businesses already transforming their supply chain.</p>
+                    <div class="hero-buttons">
+                        <a href="#" id="vendorBtn" class="btn-primary glass-btn">
+                            <i class="fas fa-store"></i>
+                            I'm a Vendor
+                        </a>
+                        <a href="#" id="whBtn" class="btn-secondary glass-btn">
+                            <i class="fas fa-warehouse"></i>
+                            I'm a Wholesaler
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Real-time Analytics</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Trading</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-rocket"></i>
+                        <span>Fast Growth</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h3 class="animate-on-scroll">Why Choose VendorConnect?</h3>
+                <div class="features-grid">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Quality Assurance</h4>
+                        <p>Advanced rating system with verified reviews from real businesses</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-search-dollar"></i>
+                        </div>
+                        <h4>Smart Price Comparison</h4>
+                        <p>AI-powered price analysis to get the best deals in real-time</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h4>Instant Connection</h4>
+                        <p>Direct messaging and contact system for seamless communication</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content animate-on-scroll">
+                    <h3>Ready to Transform Your Business?</h3>
+                    <p>Join the revolution in B2B trading</p>
+                    <div class="cta-buttons">
+                        <a href="#" id="vendorBtn2" class="btn-primary glass-btn large-btn">
+                            <i class="fas fa-store"></i>
+                            Start as Vendor
+                        </a>
+                        <a href="#" id="whBtn2" class="btn-secondary glass-btn large-btn">
+                            <i class="fas fa-warehouse"></i>
+                            Start as Wholesaler
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- About Us Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h3><i class="fas fa-info-circle"></i> About VendorConnect</h3>
+                <span class="close" onclick="closeAboutModal()">
+                    <i class="fas fa-times"></i>
+                </span>
+            </div>
+            <div class="modal-body">
+                <div class="about-content">
+                    <div class="founder-info">
+                        <div class="founder-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="founder-details">
+                            <h4>Created by [Your Name]</h4>
+                            <p class="founder-title">Full Stack Developer & Entrepreneur</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-description">
+                        <p>VendorConnect is a revolutionary platform designed to bridge the gap between local vendors and wholesalers. Our mission is to create a seamless, efficient, and transparent marketplace that empowers small businesses to grow and thrive.</p>
+                        
+                        <h5><i class="fas fa-bullseye"></i> Our Mission</h5>
+                        <p>To transform the traditional vendor-wholesaler relationship through technology, making it easier for local businesses to find quality suppliers and competitive prices.</p>
+                        
+                        <h5><i class="fas fa-eye"></i> Our Vision</h5>
+                        <p>To become the leading B2B platform that connects every local vendor with trusted wholesalers, creating a thriving ecosystem of small businesses.</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h5><i class="fas fa-envelope"></i> Get in Touch</h5>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91-9876543210</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@vendorconnect.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Tech Hub, Bangalore, India</span>
+                        </div>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h5><i class="fas fa-life-ring"></i> Need Help?</h5>
+                        <p>Our support team is available 24/7 to help you get started and make the most of VendorConnect. Don't hesitate to reach out!</p>
+                        <div class="help-buttons">
+                            <a href="mailto:support@vendorconnect.com" class="btn-primary glass-btn">
+                                <i class="fas fa-envelope"></i>
+                                Email Support
+                            </a>
+                            <a href="tel:+919876543210" class="btn-secondary glass-btn">
+                                <i class="fas fa-phone"></i>
+                                Call Support
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+    // Route user function and button event listeners
+    document.addEventListener('DOMContentLoaded', () => {
+        const vendorBtn = document.getElementById('vendorBtn');
+        const whBtn     = document.getElementById('whBtn');
+        const vendorBtn2 = document.getElementById('vendorBtn2');
+        const whBtn2     = document.getElementById('whBtn2');
+
+        // Hero buttons
+        vendorBtn.addEventListener('click', e => {
+            e.preventDefault();
+            routeUser('vendor', 'vendor-auth.html', 'vendor-dashboard.html');
+        });
+
+        whBtn.addEventListener('click', e => {
+            e.preventDefault();
+            routeUser('wholesaler', 'wholesaler-auth.html', 'wholesaler-dashboard.html');
+        });
+
+        // CTA buttons
+        vendorBtn2.addEventListener('click', e => {
+            e.preventDefault();
+            routeUser('vendor', 'vendor-auth.html', 'vendor-dashboard.html');
+        });
+
+        whBtn2.addEventListener('click', e => {
+            e.preventDefault();
+            routeUser('wholesaler', 'wholesaler-auth.html', 'wholesaler-dashboard.html');
+        });
+    });
+
+    // Global route user function
+    function routeUser(targetType, authPage, dashPage) {
+        const user     = localStorage.getItem('currentUser');
+        const userType = localStorage.getItem('currentUserType');
+
+        // Already logged-in with the same role → go straight to its dashboard
+        if (user && userType === targetType) {
+            window.location.href = dashPage;
+            return;
+        }
+
+        // Logged-in with the *other* role → flush session, then open the auth page
+        if (user && userType !== targetType) {
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('currentUserType');
+        }
+        window.location.href = authPage;
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - VendorConnect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login to VendorConnect</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="userType">Login As:</label>
+                    <select id="userType" required>
+                        <option value="">Select User Type</option>
+                        <option value="vendor">Vendor</option>
+                        <option value="wholesaler">Wholesaler</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            <div class="login-credentials">
+                <h4>Demo Credentials:</h4>
+                <div class="credentials-section">
+                    <strong>Vendor:</strong>
+                    <p>Username: vendor1 | Password: vendor123</p>
+                </div>
+                <div class="credentials-section">
+                    <strong>Wholesalers:</strong>
+                    <p>Username: wholesaler1 | Password: whole123</p>
+                    <p>Username: wholesaler2 | Password: whole123</p>
+                    <p>Username: wholesaler3 | Password: whole123</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
